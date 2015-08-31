@@ -2,7 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /* Simple disjoint set implementation using ArrayList.
- * It uses an additional array for */
+ * It uses an additional rank array to optimize the union 
+ * of two trees, so that a smaller tree is attached to the
+ * root of the larger tree. 
+ */
 public class DisjointSet {
     private List<Integer> parent;
     private List<Integer> rank;
@@ -22,7 +25,7 @@ public class DisjointSet {
             return i;
         } else {
             int result = find(parent.get(i));
-            parent.add(i, result);
+            parent.set(i, result);
             return result;
         }
     }
