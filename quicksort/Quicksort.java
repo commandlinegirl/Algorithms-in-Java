@@ -8,12 +8,18 @@ import java.util.*;
 public class Quicksort {
 
     private static void swap(int[] ar, int a, int b) {
+        if (a >= ar.length || b >= ar.length || a < 0 || b < 0) {
+            throw new IllegalArgumentException("Incorrect array index");
+        }
         int temp = ar[a];
         ar[a] = ar[b];
         ar[b] = temp;
     }
 
     private static int partition(int[] ar, int lo, int hi) {
+        if (lo >= ar.length || hi >= ar.length || lo < 0 || hi < 0) {
+            throw new IllegalArgumentException("Incorrect array index");
+        }
         int p = ar[hi]; 
         int i = lo;
         for (int j = lo; j < hi; j++) {
