@@ -5,41 +5,47 @@ package com.commandlinegirl.algorithms.sorting;
  */
 public class Mergesort implements Sort {
 
-    private void swap(int[] ar, int a, int b) {
-        if (a >= ar.length || b >= ar.length || a < 0 || b < 0) {
-            throw new IllegalArgumentException("Incorrect array index");
-        }
-        int temp = ar[a];
-        ar[a] = ar[b];
-        ar[b] = temp;
-    }
+	private void merge(int[] ar, int[] tmp, int left, int right, int rightEnd) {
+		int leftEnd = right - 1;
+		int k = left;
+		int num = rightEnd - left + 1;
 
-    private int merge(int[] ar, int lo, int hi, int mid) {
-        int n1 = mid - lo + 1;
-        int n2 = hi - mid;
+		while(left <= leftEnd && right <= rightEnd)
+			if(ar[left] <= (ar[right])) {
+				tmp[k++] = ar[left++];
+			} else {
+				tmp[k++] = ar[right++];
+			}
 
-        int[] left = new int[n1 + 1];
-        int[] right = new int[n2 + 1];
+		while(left <= leftEnd)    // Copy rest of first half
+		    tmp[k++] = ar[left++];
 
-        
-    }
-    
-    public static void mergeSort(int[] ar, int lo, int hi) {
-        if (lo < hi) {
-            int mid = (lo + hi) >>> 1;
-            merge(ar, lo, hi);
-            merge(ar, mid + 1, hi);
-            merge(ar, lo, mid, hi);
-        }
-    }
+		while(right <= rightEnd)  // Copy rest of right half
+			tmp[k++] = ar[right++];
 
-    @Override
-    public void sort(int[] ar) {
-        if (ar == null) {
-            return;
-        }
-        mergeSort(ar, 0, ar.length - 1);
-    }
-    
+		for(int i = 0; i < num; i++, rightEnd--) {
+			ar[rightEnd] = tmp[rightEnd];
+		}
+
+	}
+
+	private void mergeSort(int[] ar, int[] tmp, int left, int right) {
+		if (left < right) {
+			int mid = (left + right) >>> 1;
+			mergeSort(ar, tmp, left, mid);
+			mergeSort(ar, tmp, mid + 1, right);
+			merge(ar, tmp, left, mid + 1, right);
+		}
+	}
+
+	@Override
+	public void sort(int[] ar) {
+		if (ar == null) {
+			return;
+		}
+		int[] tmp = new int[ar.length];
+		mergeSort(ar, tmp, 0, ar.length - 1);
+	}
+
 }
 
