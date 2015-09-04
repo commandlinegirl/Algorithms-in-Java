@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithmsjava.hackerrank;
+package com.commandlinegirl.algorithms.hackerrank;
 
 import java.util.List;
 import java.util.ArrayList;

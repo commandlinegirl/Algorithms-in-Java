@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithmsjava.searching;
+package com.commandlinegirl.algorithms.searching;
 
 import java.util.List;
 import java.util.ArrayList;

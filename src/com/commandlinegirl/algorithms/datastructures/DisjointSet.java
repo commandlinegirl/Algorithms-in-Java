@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithmsjava.datastructures;
+package com.commandlinegirl.algorithms.datastructures;
 
 import java.util.ArrayList;
 import java.util.List;

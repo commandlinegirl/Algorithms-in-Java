@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithmsjava.puzzlers;
+package com.commandlinegirl.algorithms.puzzlers;
 
 public class Multicast {
 

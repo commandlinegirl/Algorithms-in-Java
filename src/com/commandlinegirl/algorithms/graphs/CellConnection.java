@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithmsjava.hackerrank;
+package com.commandlinegirl.algorithms.graphs;
 
 import java.util.*;
 

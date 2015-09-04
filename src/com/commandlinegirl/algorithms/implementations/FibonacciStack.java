@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithmsjava.implementations;
+package com.commandlinegirl.algorithms.implementations;
 
 import java.util.Stack;
 

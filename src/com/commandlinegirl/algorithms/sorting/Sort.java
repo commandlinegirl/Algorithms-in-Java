@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithmsjava.sorting;
+package com.commandlinegirl.algorithms.sorting;
 
 public interface Sort {
 
