@@ -1,12 +1,15 @@
 package com.commandlinegirl.algorithms.strings;
 
 /* Implement an algorithm to determine if a string has all unique characters
- * without using a. additional data structure. 
+ * without using an additional data structure. 
  * 
- * The solution uses a bit vector, the fact that a ^ a = 0.
+ * An average O(nlogn) solution is it to sort with quicksort in place and
+ * compare two consecutive characters.
+ * 
+ * The solution below is O(n2) but doesn't take additional space.
  * 
  */
-public class UniqueCharacters {
+public class UniqueChars {
 
     public static boolean areCharactersUnique(String str) {
         if (str == null) {
