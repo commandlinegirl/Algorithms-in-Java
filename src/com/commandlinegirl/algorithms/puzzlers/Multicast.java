@@ -12,8 +12,8 @@ public class Multicast {
  * float - single-precision 32-bit IEEE 754 floating point
  * double - single-precision 64-bit IEEE 754 floating point
  * char - 16-bit unicode character, unsigned
- * boolean - true/false; min value of '\u0000' (or 0); maximum value of '\uffff' (or 65,535 inclusive)
- *
+ * boolean - true/false; 
+ * 
  */
 
     public static void main(String[] args) {
@@ -37,13 +37,13 @@ public class Multicast {
         // E1 is evaluated only once
         byte x = 0;
         int i = 3333333;
-        x += i; // hidden cast!
+        x += i; // hidden narrowing conversion!
         System.out.println("Unexpected x value after silent conversion to byte: " + x);
         assert x == -43;
 
         int y = 20;
         double j = 0.5;
-        y += j; // hidden cast!
+        y += j; // hidden cast to int!
         assert y == 20;
         System.out.println("Unexpected y value after silent narrowing cast to int: " + y);
 
@@ -51,5 +51,18 @@ public class Multicast {
         String m = "is grumpy."; 
         n += m;
         System.out.println(n);
+        
+        // Widening primitive conversion of a char to an int zero extends char value.
+        // Concatenation won't work for non-strings.
+        System.out.println("This will print 169: ");
+        System.out.println('H' + 'a');
+        System.out.printf("Should print Ha: %c%c\n", 'H', 'a');
+        System.out.println("2 + 2 = " + 2 + 2);
+        System.out.println("" + 'H' + 'a');
+        
+        // Another way of concatenation chars is using a char array
+        char[] chars = new char[]{'A', 'B', 'C'};
+        System.out.println(String.valueOf(chars));
+        
     }
 }
