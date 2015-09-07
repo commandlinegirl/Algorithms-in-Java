@@ -11,7 +11,7 @@ import com.commandlinegirl.algorithms.datastructures.Graph.Vertex;
 public class Dijkstra {
 
     /* Main algorithm */ 
-    public void search(Vertex start) {
+    public static void search(Vertex start) {
         if (start == null) {
             return;
         }
@@ -35,7 +35,7 @@ public class Dijkstra {
         }
     }
 
-    public void printDistances(Map<Integer, Vertex> nodes, int start) {
+    public static void printDistances(Map<Integer, Vertex> nodes, int start) {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<Integer, Vertex> entry : nodes.entrySet()) {
             if (entry.getKey() != start) {
@@ -45,5 +45,6 @@ public class Dijkstra {
             }
         }
         System.out.println(sb.toString().trim());
-    }    
+    }
+       
 }

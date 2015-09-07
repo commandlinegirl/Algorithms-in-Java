@@ -29,6 +29,11 @@ public class Graph {
             this.id = id;
         }
         
+        @Override
+        public int compareTo(Vertex other) {
+            return Integer.compare(minDistance , other.minDistance);
+        }
+        
         public Set<Vertex> getAdjacencies() {
             return Collections.unmodifiableSet(adjacencies);
         }
@@ -39,6 +44,10 @@ public class Graph {
         
         public Set<Edge> getEdges() {
             return Collections.unmodifiableSet(edges);
+        }
+        
+        public void addEdge(Edge edge) {
+            edges.add(edge);
         }
         
         public void setVisited() {
@@ -57,13 +66,8 @@ public class Graph {
             return previous;
         }
 
-        @Override
-        public int compareTo(Vertex other) {
-            return Integer.compare(minDistance , other.minDistance);
-        }
-
         public void setMinDistance(int i) {
-            minDistance = 0;
+            minDistance = i;
         }
         
         public int getMinDistance() {
