@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Graph {
 
-    private Vertex root;
+    private final Vertex root;
     
     public Graph(Vertex root) {
         this.root = root;

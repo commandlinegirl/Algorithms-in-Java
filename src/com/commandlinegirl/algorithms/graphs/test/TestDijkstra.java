@@ -13,7 +13,7 @@ import com.commandlinegirl.algorithms.datastructures.Graph.Edge;
 import com.commandlinegirl.algorithms.datastructures.Graph.Vertex;
 import com.commandlinegirl.algorithms.graphs.Dijkstra;
 
-public class TestGraphs {
+public class TestDijkstra {
 
     Map<Integer, Vertex> vertices;
     
