@@ -10,36 +10,40 @@ import com.commandlinegirl.algorithms.datastructures.Graph.Vertex;
  * for a reference vertex to all other vertices. */
 public class Dijkstra {
 
-	/* Main algorithm */ 
-	public void search(Vertex start) {
-		start.setMinDistance(0);
-		PriorityQueue<Vertex> queue = new PriorityQueue<Vertex>();
-		queue.add(start);
-		while (!queue.isEmpty()) {
-			Vertex u = queue.poll();
-			for (Edge e : u.getEdges()) {
-				Vertex v = e.getDestination();
-				int weight = e.getWeight();
-				int distanceViaU = u.getMinDistance() + weight;
-				if (distanceViaU < v.getMinDistance()) {
-					queue.remove(v); 
-					v.setMinDistance(distanceViaU);
-					v.setPrevious(u);
-					queue.add(v); 
-				} 
-			}
-		}
-	}
+    /* Main algorithm */ 
+    public void search(Vertex start) {
+        if (start == null) {
+            return;
+        }
+        
+        start.setMinDistance(0);
+        PriorityQueue<Vertex> queue = new PriorityQueue<Vertex>();
+        queue.add(start);
+        while (!queue.isEmpty()) {
+            Vertex u = queue.poll();
+            for (Edge e : u.getEdges()) {
+                Vertex v = e.getDestination();
+                int weight = e.getWeight();
+                int distanceViaU = u.getMinDistance() + weight;
+                if (distanceViaU < v.getMinDistance()) {
+                    queue.remove(v); 
+                    v.setMinDistance(distanceViaU);
+                    v.setPrevious(u);
+                    queue.add(v); 
+                } 
+            }
+        }
+    }
 
-	public void printDistances(Map<Integer, Vertex> nodes, int start) {
-		StringBuilder sb = new StringBuilder();
-		for (Map.Entry<Integer, Vertex> entry : nodes.entrySet()) {
-			if (entry.getKey() != start) {
-				Vertex node = entry.getValue();
-				Integer dist = node.getMinDistance() == Integer.MAX_VALUE ? -1 : node.getMinDistance();
-				sb.append(dist + " "); 
-			}
-		}
-		System.out.println(sb.toString().trim());
-	}	
+    public void printDistances(Map<Integer, Vertex> nodes, int start) {
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<Integer, Vertex> entry : nodes.entrySet()) {
+            if (entry.getKey() != start) {
+                Vertex node = entry.getValue();
+                Integer dist = node.getMinDistance() == Integer.MAX_VALUE ? -1 : node.getMinDistance();
+                sb.append(dist + " "); 
+            }
+        }
+        System.out.println(sb.toString().trim());
+    }    
 }
