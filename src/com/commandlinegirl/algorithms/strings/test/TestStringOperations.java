@@ -11,6 +11,7 @@ import org.junit.Test;
 import com.commandlinegirl.algorithms.strings.CheckPermutation;
 import com.commandlinegirl.algorithms.strings.Permutation;
 import com.commandlinegirl.algorithms.strings.UniqueChars;
+import com.commandlinegirl.algorithms.strings.Urilify;
 
 public class TestStringOperations {
 
@@ -44,5 +45,13 @@ public class TestStringOperations {
         assertTrue(CheckPermutation.checkPermutation("abc", "cba"));
         assertFalse(CheckPermutation.checkPermutation("abcc", "cba"));
         assertTrue(CheckPermutation.checkPermutation("", ""));
+    }
+    
+    @Test
+    public void testUrilify() {
+        char[] result = Urilify.urilify("Mr John Smith    ".toCharArray());
+        assertEquals(String.valueOf(result), "Mr%20John%20Smith");
+        result = Urilify.urilify("   ".toCharArray());
+        assertEquals(String.valueOf(result), "%20");
     }
 }
