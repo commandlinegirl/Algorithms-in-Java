@@ -22,11 +22,12 @@ public class LambdaExpressions {
     /*
      * Returns the total population of a given continent.
      */
-    static public int getContinentPopulation(List<Country> countries, String continent) {
+    public static int getContinentPopulation(List<Country> countries, String continent) {
         Stream<Integer> continentCountries = countries
                 .stream()
                 .filter(u -> u.continent.equals(continent))
                 .map(u -> u.population);
         return continentCountries.reduce(0, (total, s) -> total + s);
     }
+
 }
