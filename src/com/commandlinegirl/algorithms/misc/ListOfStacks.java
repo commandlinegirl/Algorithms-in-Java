@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithms.implementations;
+package com.commandlinegirl.algorithms.misc;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;

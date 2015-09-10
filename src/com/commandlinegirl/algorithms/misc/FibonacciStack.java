@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithms.implementations;
+package com.commandlinegirl.algorithms.misc;
 
 import java.math.BigInteger;
 import java.util.Stack;

@@ -1,9 +1,12 @@
-package com.commandlinegirl.algorithms.implementations.test;
+package com.commandlinegirl.algorithms.misc.test;
 
 import static org.junit.Assert.assertEquals;
+
 import java.math.BigInteger;
+
 import org.junit.Test;
-import com.commandlinegirl.algorithms.implementations.FibonacciStack;
+
+import com.commandlinegirl.algorithms.misc.FibonacciStack;
 
 public class TestFibonacciStack {
 
