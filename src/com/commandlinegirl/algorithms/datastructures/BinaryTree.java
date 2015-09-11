@@ -6,9 +6,15 @@ public class BinaryTree {
         private final String name;
         private Node left;
         private Node right;
+        // number of node levels from root
+        private Integer height;
         
         public Node(String name) {
             this.name = name;
+        }
+        
+        public String getName() {
+            return name;
         }
         
         public Node getLeft() {
@@ -26,10 +32,13 @@ public class BinaryTree {
         public void setRight(Node right) {
             this.right = right;
         }
-        
-        public String getName() {
-            return name;
-        }
 
+        public Integer getHeight() {
+            return height;
+        }
+        
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
     }
 }
