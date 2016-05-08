@@ -8,7 +8,6 @@ import java.util.List;
 public class UniqueStringPermutation {
 
     public static List<String> permutate(String in) {
-
         if (in == null)
             return new ArrayList<>();
 
@@ -30,6 +29,8 @@ public class UniqueStringPermutation {
     }
 
     public static List<String> permutate2(String in) {
+        if (in == null)
+            return new ArrayList<>();
 
         List<String> results = new ArrayList<>();
         if (in.length() == 0) {
@@ -51,7 +52,6 @@ public class UniqueStringPermutation {
     }
 
     private static List<String> insertAtAllPositions(String inString, Character c) {
-
         List<String> strings = new ArrayList<>();
         for (int i = 0; i <= inString.length(); i++) {
             String pref = inString.substring(0, i);
@@ -67,6 +67,12 @@ public class UniqueStringPermutation {
 
     public static void main(String... args) {
         String in = "abcd";
+        printStrings(permutate(in));
+        printStrings(permutate2(in));
+        in = "a";
+        printStrings(permutate(in));
+        printStrings(permutate2(in));
+        in = null;
         printStrings(permutate(in));
         printStrings(permutate2(in));
     }
