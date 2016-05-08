@@ -47,10 +47,10 @@ public class Multicast {
         assert y == 20;
         System.out.println("Unexpected y value after silent narrowing cast to int: " + y);
 
-        Object n = "The cat ";
-        String m = "is grumpy."; 
-        n += m;
-        System.out.println(n);
+//        Object n = "The cat ";
+//        String m = "is grumpy.";
+//        n += m;
+//        System.out.println(n);
         
         // Widening primitive conversion of a char to an int zero extends char value.
         // Concatenation won't work for non-strings.
