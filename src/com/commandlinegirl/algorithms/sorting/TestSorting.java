@@ -33,5 +33,16 @@ public class TestSorting {
         expected = new int[]{0,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,2,2};
         assertTrue(Arrays.equals(expected, ar));
 
+        strategy = new SortStrategy(new Signsort());
+        ar = new int[]{-1, 2, 4, -3, -3, -3, 0};
+        strategy.sort(ar);
+        assertTrue(ar[0] < 0);
+        assertTrue(ar[1] < 0);
+        assertTrue(ar[2] < 0);
+        assertTrue(ar[3] < 0);
+        assertTrue(ar[4] >= 0);
+        assertTrue(ar[5] >= 0);
+        assertTrue(ar[6] >= 0);
+
     }
 }
