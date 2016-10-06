@@ -4,7 +4,7 @@ import java.util.List;
 
 public class BinarySearch {
 
-    public static int binarySearch(List<Integer> li, int key) {
+    public int binarySearch(List<Integer> li, int key) {
         int low = 0;
         int high = li.size() - 1;
         
