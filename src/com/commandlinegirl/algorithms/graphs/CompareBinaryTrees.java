@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithms.recursion;
+package com.commandlinegirl.algorithms.graphs;
 
 import com.commandlinegirl.algorithms.datastructures.BinaryTree;
 

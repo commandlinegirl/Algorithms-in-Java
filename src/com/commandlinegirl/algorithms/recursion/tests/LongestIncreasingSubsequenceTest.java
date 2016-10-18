@@ -1,7 +1,6 @@
 package com.commandlinegirl.algorithms.recursion.tests;
 
-import com.commandlinegirl.algorithms.recursion.LongestIncreasingSubsequence;
-import com.commandlinegirl.algorithms.recursion.LongestPalindromicSubsequence;
+import com.commandlinegirl.algorithms.dp.LongestIncreasingSubsequence;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithms.recursion;
+package com.commandlinegirl.algorithms.dp;
 
 /**
  * Adapted from: http://algorithms.tutorialhorizon.com/longest-palindromic-subsequence/

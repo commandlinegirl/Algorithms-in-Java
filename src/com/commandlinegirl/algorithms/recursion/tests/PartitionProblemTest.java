@@ -1,6 +1,6 @@
 package com.commandlinegirl.algorithms.recursion.tests;
 
-import com.commandlinegirl.algorithms.recursion.PartitionProblem;
+import com.commandlinegirl.algorithms.dp.PartitionProblem;
 import org.junit.Assert;
 import org.junit.Test;
 

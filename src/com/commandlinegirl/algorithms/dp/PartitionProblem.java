@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithms.recursion;
+package com.commandlinegirl.algorithms.dp;
 
 /**
  * Dynamic programming solution to the partition problem.
