@@ -1,4 +1,4 @@
-package com.commandlinegirl.algorithms.recursion.tests;
+package com.commandlinegirl.algorithms.dp.tests;
 
 import com.commandlinegirl.algorithms.dp.LongestPalindromicSubsequence;
 import org.junit.Assert;
