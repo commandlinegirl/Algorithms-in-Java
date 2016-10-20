@@ -2,47 +2,92 @@ package com.commandlinegirl.algorithms.dp;
 
 import java.util.Arrays;
 
-/*
-Cracking the Coding Interview, 6th Edition
-Problem 8.11 Coins
-Given an infinite number of quarters, dimes, nickels and pennies,
-write code to calculate the number of ways of representing n cents.
-*/
 public class Coins {
 
-        public static long count(int[] coins, int n, int index, long[][] cache) {
 
-            System.out.println(Arrays.toString(coins) + " n : " + n + " index: " + index);
-
-            if (n == 0) {
-                return 1;
-            }
-            else if(n < 0){
-                return 0;
-            }
-            else if(index <= 0){
-                return 0;
-            }
-
-            else if (cache[n][index] > 0) {
-                return cache[n][index];
-            }
-
-            cache[n][index] = count(coins, n, index - 1, cache) + count(coins, n - coins[index - 1], index, cache);
-            return cache[n][index];
-        }
-
-
-        public static long count(int[] li, int n) {
-            long[][] cache = new long[n + 1][li.length];
-            for (long[] i : cache )
-                Arrays.fill(i, -1l);
-            return count(li, n, li.length - 1, cache);
-        }
-
-
-    public static void main(String... args) {
-        int[] coins = {25, 10, 5, 1};
-        System.out.println(count(coins, 98));
+    /**
+     * Returns the total number of ways we can make the change of the amount t using the coins given.
+     * Recursive solution.
+     * @param coins available coin values
+     * @param m coin index
+     * @param t total amount
+     */
+    public int totalCoinsRec(int[] coins, int m, int t) {
+        if (t == 0)
+            return 1;
+        if (t < 0)
+            return 0;
+        if (m <= 0 && t >= 1)
+            return 0;
+        return totalCoinsRec(coins, m - 1,  t) // do not include the coin
+                + totalCoinsRec(coins, m, t - coins[m - 1]); // include the coin
     }
+
+    /**
+     * Returns the minimum number of coins needed to give a change of n.
+     * Bottom-up dp solution.
+     * @param coins available coin values
+     * @param t total amount
+     */
+    public int totalCoinsTab(int[] coins, int t) {
+        int[] tab = new int[t + 1];
+        Arrays.fill(tab, 0);
+        tab[0] = 1;
+
+        for (int i = 0; i < coins.length; i++) {
+            for (int j = coins[i]; j <= t; j++) {
+                tab[j] += tab[j - coins[i]];
+            }
+        }
+        return tab[t];
+    }
+    
+    /**
+     * Returns the minimum number of coins needed to give a change of n.
+     * Bottom-up dp solution.
+     * @param coins available coin values
+     * @param t total amount
+     */
+    public int totalCoinsTab2(int[] coins, int t) {
+        int[][] tab = new int[coins.length + 1][t + 1];
+
+        for (int i = 0; i <= coins.length; i++)
+            tab[i][0] = 1;
+        for (int i = 1; i <= t; i++)
+            tab[0][i] = 0;
+
+        for (int i = 1; i <= coins.length; i++) {
+            for (int j = 1; j <= t; j++) {
+                if (coins[i - 1] <= j)
+                    tab[i][j] = tab[i - 1][j] + tab[i][j - coins[i - 1]];
+                else
+                    tab[i][j] = tab[i - 1][j];
+            }
+        }
+        return tab[coins.length][t];
+    }
+
+
+
+
+    /**
+     * Returns the minimum number of coins needed to give a change of n.
+     * Recursive solution.
+     */
+    public int minCoinsRec(int[] coins, int n) {
+        if (n == 0)
+            return 0;
+        return 0;
+    }
+
+    /**
+     * Returns the minimum number of coins needed to give a change of n.
+     * Iterative bottom-up dp solution.
+     */
+    public int minCoinsTab(int[] coins, int n) {
+        if (n == 0)
+            return 0;
+        return 0;
+    }
+
 }
