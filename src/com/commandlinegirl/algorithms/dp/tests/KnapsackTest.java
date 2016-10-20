@@ -4,7 +4,7 @@ import com.commandlinegirl.algorithms.dp.Knapsack;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestKnapsack {
+public class KnapsackTest {
 
     @Test
     public void testKnapsackTab_ok1() {

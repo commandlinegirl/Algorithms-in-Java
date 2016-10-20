@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Knapsack {
 
-    public int knapSackRecHelp(int totalWt, int wt[], int val[], int n) {
+    private int knapSackRecHelp(int totalWt, int wt[], int val[], int n) {
         if (totalWt == 0 || n == 0)
             return 0;
 
