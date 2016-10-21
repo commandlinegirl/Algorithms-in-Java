@@ -4,62 +4,6 @@ public class LongestCommonSubstring {
 
     /***
      * Returns the length of the longest common substring of two strings.
-     * Recursive solution without memoization.
-     * @param a string a
-     * @param b string b
-     * @param m length of string a
-     * @param n length of string b
-     * @return
-     */
-    public int lcSubstringRec(String a, String b, int m, int n) {
-        if (m == 0 || n == 0)
-            return 0;
-
-        if (a.charAt(m - 1) == b.charAt(n - 1))
-            return 1 + lcSubstringRec(a, b, m - 1, n - 1);
-        else
-            return Math.max(
-                    lcSubstringRec(a, b, m - 1, n),
-                    lcSubstringRec(a, b, m, n - 1)
-            );
-    }
-
-    private int lcSubstringRecMem(String a, String b, int m, int n, int[][] cache) {
-        if (m == 0 || n == 0)
-            return 0;
-
-        if (cache[m][n] > 0)
-            return cache[m][n];
-
-        if (a.charAt(m - 1) == b.charAt(n - 1))
-            cache[m][n] = 1 + lcSubstringRecMem(a, b, m - 1, n - 1, cache);
-        else
-            cache[m][n] = Math.max(
-                    lcSubstringRecMem(a, b, m - 1, n, cache),
-                    lcSubstringRecMem(a, b, m, n - 1, cache)
-            );
-        return cache[m][n];
-    }
-
-    /***
-     * Returns the length of the longest common substring of two strings.
-     * Recursive top down solution with memoization.
-     * @param a string a
-     * @param b string b
-     * @return
-     */
-    public int lcSubstringRecMem(String a, String b) {
-        int m = a.length();
-        int n = b.length();
-        int[][] cache =  new int[m + 1][n + 1];
-        for (int i = 0; i <= m; i++)
-            for (int j = 0; j <= n; j++)
-                cache[i][j] = -1;
-        return lcSubstringRecMem(a, b, m, n, cache);
-    }
-
-    /***
-     * Returns the length of the longest common substring of two strings.
      * Bottom up solution.
      * @param a string a
      * @param b string b

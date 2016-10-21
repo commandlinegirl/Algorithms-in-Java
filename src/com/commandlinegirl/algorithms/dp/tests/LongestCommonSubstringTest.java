@@ -7,41 +7,7 @@ import org.junit.Test;
 
 public class LongestCommonSubstringTest {
 
-    @Test
-    public void testLongestCommonSubstringRec_ok() {
-        LongestCommonSubstring lcs = new LongestCommonSubstring();
-        String a = "reverse";
-        String b = "autoreversethis";
-        int res = lcs.lcSubstringRec(a, b, a.length(), b.length());
-        Assert.assertEquals(7, res);
-    }
 
-    @Test
-    public void testLongestCommonSubstringRec_empty() {
-        LongestCommonSubstring lcs = new LongestCommonSubstring();
-        String a = "";
-        String b = "autoreversethis";
-        int res = lcs.lcSubstringRec(a, b, a.length(), b.length());
-        Assert.assertEquals(0, res);
-    }
-
-    @Test
-    public void testLongestCommonSubstringRecMem_ok() {
-        LongestCommonSubstring lcs = new LongestCommonSubstring();
-        String a = "reverse";
-        String b = "autoreversethis";
-        int res = lcs.lcSubstringRecMem(a, b);
-        Assert.assertEquals(7, res);
-    }
-
-    @Test
-    public void testLongestCommonSubstringRecMem_empty() {
-        LongestCommonSubstring lcs = new LongestCommonSubstring();
-        String a = "reverse";
-        String b = "";
-        int res = lcs.lcSubstringRecMem(a, b);
-        Assert.assertEquals(0, res);
-    }
 
     @Test
     public void testLongestCommonSubstringTab_ok() {
@@ -50,6 +16,33 @@ public class LongestCommonSubstringTest {
         String b = "autoreversethis";
         int res = lcs.lcSubstringTab(a, b);
         Assert.assertEquals(7, res);
+    }
+
+    @Test
+    public void testLongestCommonSubstringTab2_ok() {
+        LongestCommonSubstring lcs = new LongestCommonSubstring();
+        String a = "reversae";
+        String b = "autoreversethis";
+        int res = lcs.lcSubstringTab(a, b);
+        Assert.assertEquals(6, res);
+    }
+
+    @Test
+    public void testLongestCommonSubstringTab3_ok() {
+        LongestCommonSubstring lcs = new LongestCommonSubstring();
+        String a = "ABCDGH";
+        String b = "AEDFHR";
+        int res = lcs.lcSubstringTab(a, b);
+        Assert.assertEquals(1, res);
+    }
+
+    @Test
+    public void testLongestCommonSubstringTab4_ok() {
+        LongestCommonSubstring lcs = new LongestCommonSubstring();
+        String a = "AGGTAB";
+        String b = "GXTXAYB";
+        int res = lcs.lcSubstringTab(a, b);
+        Assert.assertEquals(1, res);
     }
 
     @Test
@@ -69,4 +62,6 @@ public class LongestCommonSubstringTest {
         String res = lcs.findLcSubstringTab(a, b);
         Assert.assertEquals("reverse", res);
     }
+
+
 }
