@@ -1,7 +1,5 @@
 package com.commandlinegirl.algorithms.dp;
 
-import com.commandlinegirl.algorithms.utils.Printer;
-
 public class LongestPalindromicSubstring {
 
     /***
