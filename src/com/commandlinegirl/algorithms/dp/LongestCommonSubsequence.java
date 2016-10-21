@@ -58,4 +58,28 @@ public class LongestCommonSubsequence {
         return lcSubsequenceRecMem(a, b, m, n, cache);
     }
 
+    /***
+     * Returns the length of the longest common subsequence of two strings.
+     * Tabular bottom-down solution.
+     * @param a string a
+     * @param b string b
+     * @return
+     */
+    public int lcSubsequenceTab(String a, String b) {
+        int m = a.length();
+        int n = b.length();
+        int[][] cache =  new int[m + 1][n + 1];
+        for (int i = 0; i <= m; i++) {
+            for (int j = 0; j <= n; j++) {
+                if (i == 0 || j == 0)
+                    cache[i][j] = 0;
+                else if (a.charAt(i - 1) == b.charAt(j - 1))
+                    cache[i][j] = 1 + cache[i - 1][j - 1];
+                else
+                    cache[i][j] = Math.max(cache[i][j - 1], cache[i - 1][j]);
+            }
+        }
+        return cache[m][n];
+    }
+    
 }
