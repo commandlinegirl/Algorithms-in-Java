@@ -13,11 +13,11 @@ public class PalindromeMinCutTest {
         Assert.assertEquals(3, res);
     }
 
-//    @Test
-//    public void testMinCutsTab_ok1() {
-//        PalindromeMinCut e = new PalindromeMinCut();
-//        int res = e.minCuts("ababbbabbababa");
-//        Assert.assertEquals(3, res);
-//    }
+    @Test
+    public void testMinCutsTab_ok1() {
+        PalindromeMinCut e = new PalindromeMinCut();
+        int res = e.minCutsTab("ababbbabbababa");
+        Assert.assertEquals(3, res);
+    }
 
 }
