@@ -47,5 +47,13 @@ public class LongestIncreasingSubsequenceTest {
         Assert.assertEquals(1, res);
     }
 
+//    @Test
+//    public void testLongestIncreasingSubsequence_rec3() {
+//        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+//        int[] ar = {8, 7, 6, 5, 4, 3};
+//        int res = lis.lisRec(ar);
+//        Assert.assertEquals(1, res);
+//    }
+
 
 }
