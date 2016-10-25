@@ -5,6 +5,40 @@ package com.commandlinegirl.algorithms.dp;
  */
 public class PartitionProblem {
 
+    /**
+     * Recursive solution.
+     * @param nums array of integers
+     * @return
+     */
+    public boolean partitionRec(int[] nums) {
+        int halfSum = sum(nums) >> 1;
+        return (halfSum % 2 == 0) && isSubset(nums, halfSum, nums.length - 1);
+    }
+
+    private boolean isSubset(int[] nums, int sum, int n) {
+        if (sum == 0)
+            return true;
+        if (n <= 0 && sum > 0)
+            return false;
+
+        if (nums[n] > sum)
+            isSubset(nums, sum, n - 1);
+
+        return isSubset(nums, sum, n - 1) || isSubset(nums, sum - nums[n], n - 1);
+    }
+
+    private int sum(int[] nums) {
+        int sum = 0;
+        for (int x : nums)
+            sum += x;
+        return sum;
+    }
+
+    /**
+     * Bottom-up table solution.
+     * @param s array of integers
+     * @return
+     */
     public boolean partition(int[] s) {
         if (s == null)
             throw new IllegalArgumentException("null input array");
@@ -44,9 +78,8 @@ public class PartitionProblem {
      */
     private int getSum(int[] s) {
         int ret = 0;
-        for (int i : s) {
+        for (int i : s)
             ret += i;
-        }
         return ret;
     }
 
