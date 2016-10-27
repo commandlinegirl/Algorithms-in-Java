@@ -8,16 +8,7 @@ import org.junit.Test;
 
 public class MinDepthBinaryTreeTest {
 
-    TreeNode n0;
-    TreeNode n1;
-    TreeNode n2;
-    TreeNode n3;
-    TreeNode n4;
-    TreeNode n5;
-    TreeNode n6;
-    TreeNode n7;
-    TreeNode n8;
-    TreeNode n9;
+    private TreeNode n0, n1, n2, n3, n4, n5, n6, n7, n8, n9;
 
     @Before
     public void setup() {

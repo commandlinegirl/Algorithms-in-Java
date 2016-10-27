@@ -12,7 +12,7 @@ import java.util.List;
 
 public class InvertBinaryTreeTest {
 
-    TreeNode n0, n1, n2, n3, n4, n5, n6, n7, n8, n9;
+    private TreeNode n0, n1, n2, n3, n4, n5, n6, n7, n8, n9;
 
     @Before
     public void setup() {
