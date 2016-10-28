@@ -30,11 +30,10 @@ public class MinDepthBinaryTree {
             return 0;
 
         int h = 1;
-        int numAtLevel = 1;
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
         while (!q.isEmpty()) {
-            numAtLevel = q.size();
+            int numAtLevel = q.size();
             while (numAtLevel > 0) {
                 TreeNode n = q.remove();
                 if (n.left == null && n.right == null) {
