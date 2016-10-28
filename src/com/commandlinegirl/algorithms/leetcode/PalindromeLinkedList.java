@@ -32,15 +32,7 @@ public class PalindromeLinkedList {
                 num++;
             }
         }
-        System.out.println(slow.val);
-        System.out.println(num);
-
-        ListNode reversedHead;
-        if (num % 2 == 0)
-            reversedHead = slow;
-        else
-            reversedHead = slow.next;
-
+        ListNode reversedHead = num % 2 == 0 ? slow : slow.next;
         ListNode reversed = reverse(reversedHead);
         while (reversed != null) {
             if (reversed.val != head.val)
