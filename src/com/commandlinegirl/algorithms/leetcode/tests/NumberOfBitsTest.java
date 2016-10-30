@@ -51,6 +51,12 @@ public class NumberOfBitsTest {
     @Test
     public void testHammingWeight8() {
         NumberOfBits e = new NumberOfBits();
-        Assert.assertEquals(31, e.hammingWeight(-2147483647));
+        Assert.assertEquals(31, e.hammingWeight(Integer.MAX_VALUE));
+    }
+
+    @Test
+    public void testHammingWeight9() {
+        NumberOfBits e = new NumberOfBits();
+        Assert.assertEquals(1, e.hammingWeight(Integer.MIN_VALUE));
     }
 }
