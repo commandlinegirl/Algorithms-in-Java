@@ -9,6 +9,14 @@ import java.util.Map;
  */
 public class LongestSubstringWithoutRepeatingChars {
 
+    /**
+     * The hashmap stores the index of the char so that when the char is spotted
+     * second time, all the chars up to that index can be removed from the hashmap.
+     * Time complexity: O(n), at most each char will be visited 2 times
+     * Memory complexity: O(min(m,n)), where m is the size of the alphabet
+     * @param s
+     * @return
+     */
     public int lengthOfLongestSubstring(String s) {
         int ls = 0;
         int start = 0;

@@ -13,6 +13,8 @@ public class LongestUniqueCharSubstring {
 
     /**
      * Returns the length of the longest substring with non-repeating characters.
+     * Time complexity: O(n), at most each char will be visited 2 times
+     * Memory complexity: O(min(m,n)), where m is the size of the alphabet
      * @param s input string
      * @return
      */
