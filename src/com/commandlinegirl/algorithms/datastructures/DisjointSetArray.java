@@ -8,11 +8,11 @@ import java.util.List;
  * of two trees, so that a smaller tree is attached to the
  * root of the larger tree. 
  */
-public class DisjointSet {
+public class DisjointSetArray {
     private List<Integer> parent;
     private List<Integer> rank;
 
-    public DisjointSet(int count) {
+    public DisjointSetArray(int count) {
         parent = new ArrayList<>();
         rank = new ArrayList<>();
         for (int i = 0; i < count; i++) {
