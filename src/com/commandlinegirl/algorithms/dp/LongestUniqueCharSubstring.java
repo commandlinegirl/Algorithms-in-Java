@@ -10,44 +10,32 @@ import java.util.Set;
  */
 public class LongestUniqueCharSubstring {
 
-    private int longestUniqueSubstringRec(String ar, int j) {
-        if (j == 0)
-            return 1;
 
-        Set<Character> set = new HashSet<>();
-        int max = 0;
-        for (int i = 0; i < j; i++) {
-            if (!set.contains(ar.charAt(i))) {
-                max++;
-                set.add(ar.charAt(i));
-            } else {
-                continue;
+    /**
+     * Returns the length of the longest substring with non-repeating characters.
+     * @param s input string
+     * @return
+     */
+    public int longestUniqueSubstring(String s) {
+        int ls = 0;
+        int start = 0;
+        int end = 0;
+        Map<Character, Integer> visited = new HashMap<>();
+        while (end < s.length()) {
+            if (visited.get(s.charAt(end)) != null) {
+                ls = Math.max(ls, visited.size());
+                // remove all characters up to the one that is repeated (ie. equal to the one at end)
+                int prevCharIndex = visited.get(s.charAt(end));
+                for (int i = start; i <= prevCharIndex; i++) {
+                    visited.remove(s.charAt(start));
+                    start++;
+                }
             }
+            visited.put(s.charAt(end), end);
+            end++;
         }
-        return Math.max(max, longestUniqueSubstringRec(ar, j - 1));
-    }
-
-    /**
-     * Returns the length of the longest substring with non-repeating characters.
-     * Recursive solution with O(n^2) time complexity.
-     * @param s input string
-     * @return
-     */
-    public int longestUniqueSubstringRec(String s) {
-        return longestUniqueSubstringRec(s, s.length() - 1);
-    }
-
-    /**
-     * Returns the length of the longest substring with non-repeating characters.
-     * Bottom up solution
-     * @param s input string
-     * @return
-     */
-    public int longestUniqueSubstringTab(String s) {
-        //the last indexes of already visited characters
-        Map<Character, Integer> lastIndex = new HashMap<>();
-        int lus = 0;
-        return lus;
+        ls = Math.max(ls, visited.size());
+        return ls;
     }
 
 
