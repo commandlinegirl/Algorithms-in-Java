@@ -13,8 +13,8 @@ import com.commandlinegirl.algorithms.graphs.Kruskal;
 
 public class TestKruskal {
 
-    PriorityQueue<Edge> edges = new PriorityQueue<>();
-    int vertexCount;
+    private PriorityQueue<Edge> edges = new PriorityQueue<>();
+    private int vertexCount;
     
     @Before
     public void setupTest() {
@@ -38,8 +38,13 @@ public class TestKruskal {
     }
 
     @Test
-    public void testDijkstra() {
-        assertEquals(Kruskal.getMstSum(edges, vertexCount), 12);
+    public void testKruskal_array_ds() {
+        assertEquals(Kruskal.getMstSumArray(edges, vertexCount), 12);
     }
- 
+
+    @Test
+    public void testKruskal_tree_ds() {
+        assertEquals(Kruskal.getMstSumTree(edges, vertexCount), 12);
+    }
+
 }

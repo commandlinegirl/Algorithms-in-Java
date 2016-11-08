@@ -1,6 +1,7 @@
 package com.commandlinegirl.algorithms.graphs;
 
 import com.commandlinegirl.algorithms.datastructures.DisjointSetArray;
+import com.commandlinegirl.algorithms.datastructures.DisjointSetTree;
 import com.commandlinegirl.algorithms.datastructures.Graph.Edge;
 
 import java.util.HashSet;
@@ -12,7 +13,7 @@ import java.util.Set;
  */
 public class Kruskal {
 
-    public static int getMstSum(PriorityQueue<Edge> edges, int vertexCount) {
+    public static int getMstSumArray(PriorityQueue<Edge> edges, int vertexCount) {
         int cost = 0;
         Set<Edge> mst = new HashSet<>();
         DisjointSetArray ds = new DisjointSetArray(vertexCount);
@@ -30,4 +31,24 @@ public class Kruskal {
         }
         return cost;
     }
+
+
+//    public static int getMstSumTree(PriorityQueue<Edge> edges, int vertexCount) {
+//        int cost = 0;
+//        Set<Edge> mst = new HashSet<>();
+//        DisjointSetTree ds = new DisjointSetTree();
+//        while (!edges.isEmpty() && mst.size() != vertexCount - 1) {
+//            Edge minEdge = edges.poll();
+//            DisjointSetTree.Node u = minEdge.getSource();
+//            DisjointSetTree.Node v = minEdge.getDestination();
+//            if (ds.find(u) != ds.find(v)) {
+//                mst.add(minEdge);
+//                ds.union(u, v);
+//            }
+//        }
+//        for (Edge e : mst) {
+//            cost += e.getWeight();
+//        }
+//        return cost;
+//    }
 }
