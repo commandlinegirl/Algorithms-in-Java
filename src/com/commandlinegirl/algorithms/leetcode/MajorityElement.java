@@ -8,6 +8,26 @@ package com.commandlinegirl.algorithms.leetcode;
 public class MajorityElement {
 
     public int majorityElement(int[] nums) {
-        return 0;
+        int count = 0;
+        int maj = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[maj] == nums[i]) {
+                count++;
+            } else {
+                count--;
+            }
+            if (count == 0) {
+                maj = i;
+                count = 1;
+            }
+        }
+
+        count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[maj] == nums[i])
+                count++;
+        }
+        return (count > nums.length / 2) ? nums[maj] : -1;
     }
 }
