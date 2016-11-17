@@ -1,16 +1,15 @@
 package com.commandlinegirl.algorithms.datastructures;
 
-/* Simple disjoint set implementation using Trees.
- * It uses an additional rank array to optimize the union 
- * of two trees, so that a smaller tree is attached to the
- * root of the larger tree. 
+/* Simple disjoint set implementation using trees.
+ * It uses additional rank heuristic to optimize the union of two trees. A smaller tree is attached to
+ * the root of the larger tree so that the depth of the tree is as low as possible.
  */
 public class DisjointSetTree {
 
     /* Creates a node of the set */
     public Node createNode(int i) {
         Node n = new Node();
-        n.parent = null;
+        n.parent = n;
         n.rank = 0;
         n.id = i;
         return n;
@@ -33,7 +32,7 @@ public class DisjointSetTree {
         if (rep_i.id == rep_j.id) {
             return;
         }
-
+        // the parent will be the node with a higher rank
         if (rep_i.rank >= rep_j.rank) {
             rep_j.parent = rep_i;
             if (rep_i.rank == rep_j.rank)
