@@ -21,6 +21,11 @@ public class TestSorting {
         strategy.sort(ar);
         assertTrue(Arrays.equals(expected, ar));
 
+        strategy = new SortStrategy(new Bubblesort());
+        ar = new int[]{10,4,8,3,2,5,10,1001,4,5,6};
+        strategy.sort(ar);
+        assertTrue(Arrays.equals(expected, ar));
+
         strategy = new SortStrategy(new Insertsort());
         ar = new int[]{10,4,8,3,2,5,10,1001,4,5,6,888};
         strategy.sort(ar);
