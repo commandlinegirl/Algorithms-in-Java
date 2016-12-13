@@ -1,8 +1,5 @@
 package com.commandlinegirl.algorithms.leetcode;
 
-import apple.laf.JRSUIUtils;
-import com.commandlinegirl.algorithms.interview.BinaryTreePrintLeaves;
-
 import java.util.*;
 
 /**
@@ -12,7 +9,7 @@ import java.util.*;
  */
 public class BinaryTreeInorderIterative {
 
-    public List<Integer> inorderTraversal(TreeNode root) {
+    public List<Integer> inorderTraversalVisitedHashmap(TreeNode root) {
         List<Integer> vals = new ArrayList<>();
         if (root == null)
             return vals;
@@ -36,7 +33,7 @@ public class BinaryTreeInorderIterative {
         return vals;
     }
 
-    public List<Integer> inorderTraversal2(TreeNode root) {
+    public List<Integer> inorderTraversalPushLeftNodes(TreeNode root) {
         List<Integer> vals = new ArrayList<>();
         Stack<TreeNode> s = new Stack<>();
         pushLeftNodes(s, root);
@@ -78,6 +75,25 @@ public class BinaryTreeInorderIterative {
 
         return vals;
     }
+
+    public List<Integer> inorderTraversalShortVersion(TreeNode root) {
+        List<Integer> vals = new ArrayList<>();
+        if (root == null)
+            return vals;
+        Stack<TreeNode> s = new Stack<>();
+        TreeNode cur = root;
+        while (!s.empty() || cur != null)  {
+            while (cur != null) {
+                s.push(cur);
+                cur = cur.left;
+            }
+            cur = s.pop();
+            vals.add(cur.val);
+            cur = cur.right;
+        }
+        return vals;
+    }
+
     /**
      * Definition for a binary tree node.
      */
