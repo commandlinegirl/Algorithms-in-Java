@@ -5,7 +5,7 @@ package com.commandlinegirl.algorithms.leetcode;
  */
 public class ConvertDecimalToHexadecimal {
 
-    char[] d2h = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private char[] d2h = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public String toHex(int num) {
         if (num == 0)
