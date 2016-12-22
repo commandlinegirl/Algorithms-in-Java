@@ -19,16 +19,16 @@ public class Quickselect {
     }
 
     private int partition(int[] ar, int lo, int hi) {
-        int pivotValue = ar[hi];
-        int pivotIndex = lo;
+        int p = ar[hi];
+        int i = lo;
         for (int j = lo; j < hi; j++) {
-            if (ar[j] < pivotValue) {
-                swap(ar, pivotIndex, j);
-                pivotIndex++;
+            if (ar[j] < p) {
+                swap(ar, i, j);
+                i++;
             }
         }
-        swap(ar, pivotIndex, hi); // swap the pivot (the end position) with the current pivot index i
-        return pivotIndex;
+        swap(ar, i, hi); // swap the pivot (the end position) with the current pivot index i
+        return i;
     }
 
     private void swap(int[] ar, int a, int b) {

@@ -18,12 +18,13 @@ public class Quicksort implements Sort {
         if (lo >= ar.length || hi >= ar.length || lo < 0 || hi < 0) {
             throw new IllegalArgumentException("Incorrect array index");
         }
-        int p = ar[hi]; 
+        int p = ar[hi];
         int i = lo;
         for (int j = lo; j < hi; j++) {
             if (ar[j] <= p) {
+                // place the smaller element before the pivot (i)
                 swap(ar, i, j);
-                i++;  
+                i++;
             }
         }
         swap(ar, i, hi);
