@@ -1,77 +1,96 @@
 package com.commandlinegirl.algorithms.datastructures;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 /* Simple min heap implementation in Java */
 public class MinHeap {
 
-    private List<Integer> list;
-    
-    public MinHeap() {
-        list = new ArrayList<>();
+    private int capacity;
+    private int size = 0;
+    private int[] arr;
+
+    public MinHeap(int capacity) {
+        this.capacity = capacity;
+        this.arr = new int[capacity];
     }
 
-    private void popMinHeapify(int i) {
-        int left = 2 * i + 1;
-        int right = 2 * i + 2;
-        int min = i;
-        
-        if (withinList(left) && list.get(left) < list.get(min)) {
-            min = left;
-        }
-        if (withinList(right) && list.get(right) < list.get(min)) {
-            min = right;
-        }
-        if (min != i) {
-            swap(i, min);
-            popMinHeapify(min);
+    public int peek() {
+        if (size == 0)
+            throw new IllegalArgumentException();
+        return arr[0];
+    }
+
+    public int pop() {
+        if (size == 0)
+            throw new IllegalArgumentException();
+        int val = arr[0];
+        arr[0] = arr[size - 1];
+        size--;
+        heapifyDown(0);
+        return val;
+    }
+
+    public void add(int val) {
+        ensureCapacity();
+        arr[size++] = val;
+        heapifyUp(size - 1);
+    }
+
+    private void ensureCapacity() {
+        if (size == capacity) {
+            Arrays.copyOf(arr, capacity * 2);
+            capacity *= 2;
         }
     }
 
-    private void addMinHeapify(int i) {
-        int parent = (int) Math.floor((i - 1)/2);
-        if (withinList(parent) && list.get(parent) > list.get(i)) {
-            swap(parent, i);
-            addMinHeapify(parent);
+    private void heapifyDown(int ind) {
+        int min = ind;
+        if (hasLeft(ind) && arr[ind] > arr[left(ind)]) {
+            min = left(ind);
+        }
+        if (hasRight(ind) && arr[right(ind)] < arr[min]) {
+            min = right(ind);
+        }
+        if (min != ind) {
+            swap(min, ind);
+            heapifyDown(min);
         }
     }
 
-    private void swap(int a, int b) {
-        if (withinList(a) && withinList(b)) {
-            Integer temp = list.get(a);
-            list.set(a, list.get(b));
-            list.set(b, temp);
+    private void heapifyUp(int ind) {
+        if (hasParent(ind) && arr[parent(ind)] > arr[ind]) {
+            swap(ind, parent(ind));
+            heapifyUp(parent(ind));
         }
     }
 
-    private boolean withinList(int index) {
-        return index < list.size();
-    }   
- 
-    public void push(Integer i) {
-        list.add(i);
-        addMinHeapify(list.size() - 1);
+    private void swap(int s, int ind) {
+        int tmp = arr[s];
+        arr[s] = arr[ind];
+        arr[ind] = tmp;
     }
 
-    public Integer pop() {
-        if (list.isEmpty()) {
-            return null;
-        }
-        Integer min = list.remove(0);
-        popMinHeapify(0);
-        return min;
+    private int left(int index) {
+        return (index * 2) + 1;
     }
-    
-    public Integer peek() {
-        if (list.isEmpty()) {
-            return null;
-        }
-        return list.get(0);
+
+    private int right(int index) {
+        return (index * 2) + 2;
     }
-    
-    public boolean isEmpty() {
-        return list.isEmpty();
+
+    private int parent(int index) {
+        return (index - 1) / 2;
     }
-    
+
+    private boolean hasLeft(int index) {
+        return left(index) < size;
+    }
+
+    private boolean hasRight(int index) {
+        return right(index) < size;
+    }
+
+    private boolean hasParent(int index) {
+        return parent(index) >= size;
+    }
 }
