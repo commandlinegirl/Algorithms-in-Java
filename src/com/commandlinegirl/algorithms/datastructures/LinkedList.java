@@ -12,10 +12,10 @@ public class LinkedList<T> {
             return null;
 
         Node current = start;
-        Node prev = null, next;
+        Node prev = null;
 
         while (current != null) {
-            next = current.next;
+            Node next = current.next;
             current.next = prev;
             prev = current;
             current = next;

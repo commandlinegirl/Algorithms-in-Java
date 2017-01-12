@@ -17,7 +17,7 @@ public class Dijkstra {
         }
         
         start.setMinDistance(0);
-        PriorityQueue<Vertex> queue = new PriorityQueue<Vertex>();
+        PriorityQueue<Vertex> queue = new PriorityQueue<>();
         queue.add(start);
         while (!queue.isEmpty()) {
             Vertex u = queue.poll();
@@ -41,7 +41,7 @@ public class Dijkstra {
             if (entry.getKey() != start) {
                 Vertex node = entry.getValue();
                 Integer dist = node.getMinDistance() == Integer.MAX_VALUE ? -1 : node.getMinDistance();
-                sb.append(dist + " "); 
+                sb.append(dist).append(" ");
             }
         }
         System.out.println(sb.toString().trim());

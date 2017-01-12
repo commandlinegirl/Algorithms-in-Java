@@ -2,6 +2,9 @@ package com.commandlinegirl.algorithms.dp;
 
 import com.commandlinegirl.algorithms.utils.Printer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MatrixMinCostPath {
 
     /***
@@ -44,28 +47,37 @@ public class MatrixMinCostPath {
 
     /***
      * Min cost path - table bottom-up solution.
-     * @param matrix cost matrix
-     * @param m target index
-     * @param n target index
+     * @param a cost matrix
      * @return
      */
-    public int minCostPathTab(int[][] matrix, int m, int n) {
-        int[][] p = new int[m+2][n+2];
-        for (int i = 0; i <= m + 1; i++) {
-            for (int j = 0; j <= n + 1; j++) {
-                if (i == 0 && j == 0)
-                    p[0][0] = 0;
-                else if (i == 0 || j == 0)
-                    p[i][j] = Integer.MAX_VALUE;
-                else
-                    p[i][j] = matrix[i-1][j-1] + min(p[i-1][j], p[i-1][j-1], p[i][j-1]);
+    public int minPathSum(List<List<Integer>> a) {
+        if (a == null || a.size() == 0) {
+            return 0;
+        }
+        int m = a.size() - 1;
+        int n = a.get(0).size() - 1;
+        int[][] p = new int[m + 1][n + 1];
+
+        p[0][0] = a.get(0).get(0);
+
+        for (int j = 1; j <= n; j++) {
+            p[0][j] = p[0][j - 1] + a.get(0).get(j);
+        }
+
+        for (int i = 1; i <= m; i++) {
+            p[i][0] = p[i - 1][0] + a.get(i).get(0);
+        }
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                p[i][j] = a.get(i).get(j) + Math.min(p[i - 1][j], p[i][j - 1]);
             }
         }
-        new Printer().printMatrix(p);
-        return p[m + 1][n + 1];
+        return p[m][n];
     }
 
     private int min(int i, int j, int k) {
         return Math.min(i, Math.min(j, k));
     }
+
 }
