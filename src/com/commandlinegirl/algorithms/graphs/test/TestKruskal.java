@@ -42,9 +42,4 @@ public class TestKruskal {
         assertEquals(Kruskal.getMstSumArray(edges, vertexCount), 12);
     }
 
-    @Test
-    public void testKruskal_tree_ds() {
-        assertEquals(Kruskal.getMstSumTree(edges, vertexCount), 12);
-    }
-
 }

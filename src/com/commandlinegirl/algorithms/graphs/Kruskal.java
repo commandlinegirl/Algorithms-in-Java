@@ -32,23 +32,4 @@ public class Kruskal {
         return cost;
     }
 
-
-//    public static int getMstSumTree(PriorityQueue<Edge> edges, int vertexCount) {
-//        int cost = 0;
-//        Set<Edge> mst = new HashSet<>();
-//        DisjointSetTree ds = new DisjointSetTree();
-//        while (!edges.isEmpty() && mst.size() != vertexCount - 1) {
-//            Edge minEdge = edges.poll();
-//            DisjointSetTree.Node u = minEdge.getSource();
-//            DisjointSetTree.Node v = minEdge.getDestination();
-//            if (ds.find(u) != ds.find(v)) {
-//                mst.add(minEdge);
-//                ds.union(u, v);
-//            }
-//        }
-//        for (Edge e : mst) {
-//            cost += e.getWeight();
-//        }
-//        return cost;
-//    }
 }
