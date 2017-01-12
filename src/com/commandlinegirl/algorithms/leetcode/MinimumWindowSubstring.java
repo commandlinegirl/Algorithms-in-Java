@@ -10,36 +10,32 @@ public class MinimumWindowSubstring {
 
     public String minWindow(String s, String t) {
         int start = 0, end = 0;
-        int counter = t.length(); // number of t characters in s
+        int counter = t.length();
         int min_so_far = Integer.MAX_VALUE;
-        int head = 0;
+        int min_head = 0;
         Map<Character, Integer> tchars = new HashMap<>();
         for (char c : t.toCharArray())
             tchars.put(c, tchars.getOrDefault(c, 0) + 1);
 
         while (end < s.length()) {
-            if (tchars.get(s.charAt(end)) > 0) {
+            if (tchars.getOrDefault(s.charAt(end), 0) > 0) {
                 counter--;
             }
-            tchars.put(s.charAt(end), tchars.get(s.charAt(end)) - 1);
+            tchars.put(s.charAt(end), tchars.getOrDefault(s.charAt(end), 0) - 1);
             end++;
 
-            // A valid window is found; save its size and head,
-            // then move start to find a smaller window
             while (counter == 0) {
                 if (end - start < min_so_far) {
                     min_so_far = end - start;
-                    head = start;
+                    min_head = start;
                 }
-
                 tchars.put(s.charAt(start), tchars.get(s.charAt(start)) + 1);
                 if (tchars.get(s.charAt(start)) > 0) {
-                    counter++;
+                    counter++;   // make it invalid
                 }
                 start++;
             }
         }
-
-        return min_so_far == Integer.MAX_VALUE ? "" : s.substring(head, head + min_so_far);
+        return min_so_far == Integer.MAX_VALUE ? "" : s.substring(min_head, min_head + min_so_far);
     }
 }
