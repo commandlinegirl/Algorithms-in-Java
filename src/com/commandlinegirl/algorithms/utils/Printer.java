@@ -9,7 +9,7 @@ public class Printer {
 
         for (int i=0;i<p.length;i++) {
             for(int j=0;j<p.length;j++)
-                System.out.print("  " + p[i][j]);
+                System.out.format("%4d", p[i][j]);
             System.out.println("");
         }
     }
