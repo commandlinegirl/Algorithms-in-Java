@@ -1,25 +1,18 @@
-package com.commandlinegirl.algorithms.interview.test;
+package com.commandlinegirl.algorithms.strings.test;
 
-import com.commandlinegirl.algorithms.interview.SubstringSearch;
+import com.commandlinegirl.algorithms.strings.RabinKarp;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
  *
  */
-public class SubstringSearchTest {
+public class RabinKarpTest {
 
     @Test
-    public void testSubstringSearchRK() {
-        SubstringSearch searcher = new SubstringSearch();
-        int index = searcher.strStrRabinKarp("internnet", "net");
-        Assert.assertEquals(6, index);
-    }
-
-    @Test
-    public void testSubstringSearchNaive() {
-        SubstringSearch searcher = new SubstringSearch();
-        int index = searcher.strStrNaive("internnet", "net");
+    public void testSubstringSearch() {
+        RabinKarp searcher = new RabinKarp();
+        int index = searcher.searchPattern("internnet", "net");
         Assert.assertEquals(6, index);
     }
 }
